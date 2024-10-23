@@ -1,0 +1,37 @@
+<?php
+// Tamaño del array (puedes cambiarlo)
+$tamano = 10;
+
+// Función para generar un array aleatorio con valores 0 y 1
+function generarArrayAleatorio($tamano) {
+    $array = [];
+    for ($i = 0; $i < $tamano; $i++) {
+        $array[] = rand(0, 1);
+    }
+    return $array;
+}
+
+// Función para calcular el complemento de un array (invierte los valores 0 y 1)
+function calcularComplemento($array) {
+    $complemento = [];
+    foreach ($array as $valor) {
+        $complemento[] = ($valor == 0) ? 1 : 0;
+    }
+    return $complemento;
+}
+
+// Generar el array aleatorio
+$arrayOriginal = generarArrayAleatorio($tamano);
+
+// Mostrar el array original
+echo "Array original: ";
+print_r($arrayOriginal);
+
+// Calcular el complemento
+$arrayComplemento = calcularComplemento($arrayOriginal);
+
+// Mostrar el array complemento
+echo "Array complemento: ";
+print_r($arrayComplemento);
+
+?>

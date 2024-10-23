@@ -1,0 +1,15 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.cartas {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.cartas img {
+    width: 100px; /* Ajustar el tamaño de las cartas */
+    margin: 0 10px;
+}

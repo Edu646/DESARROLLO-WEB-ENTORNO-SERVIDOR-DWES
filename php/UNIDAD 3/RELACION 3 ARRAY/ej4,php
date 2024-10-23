@@ -1,0 +1,29 @@
+<?php
+// Generamos un array con 20 números aleatorios entre 0 y 100
+$numeros = [];
+for ($i = 0; $i < 20; $i++) {
+    $numeros[] = rand(0, 100);
+}
+
+// Creamos arrays para los cuadrados y cubos
+$cuadrados = [];
+$cubos = [];
+
+// Calculamos los cuadrados y cubos y los almacenamos en sus respectivos arrays
+foreach ($numeros as $numero) {
+    $cuadrados[] = pow($numero, 2);
+    $cubos[] = pow($numero, 3);
+}
+
+// Mostramos los resultados en una tabla para una mejor visualización
+echo "<table>";
+echo "<tr><th>Número</th><th>Cuadrado</th><th>Cubo</th></tr>";
+for ($i = 0; $i < count($numeros); $i++) {
+    echo "<tr>";
+    echo "<td>$numeros[$i]</td>";
+    echo "<td>$cuadrados[$i]</td>";
+    echo "<td>$cubos[$i]</td>";
+    echo "</tr>";
+}
+echo "</table>";
+?>

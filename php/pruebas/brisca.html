@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brisca</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Cartas repartidas al jugador</h1>
+    <div class="cartas">
+        <?php foreach ($cartasJugador as $carta): ?>
+            <img src="images/<?php echo str_replace(' de ', '_', $carta) . '.png'; ?>" alt="<?php echo $carta; ?>">
+        <?php endforeach; ?>
+    </div>
+
+    <h2>Baza del jugador</h2>
+    <div class="cartas">
+        <?php foreach ($bazaJugador as $carta): ?>
+            <img src="images/<?php echo str_replace(' de ', '_', $carta) . '.png'; ?>" alt="<?php echo $carta; ?>">
+        <?php endforeach; ?>
+    </div>
+
+    <h2>Puntos en la baza: <?php echo $puntosTotal; ?></h2>
+</body>
+</html>
