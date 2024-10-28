@@ -61,14 +61,12 @@
 
 
 
- <label for="dormitorios">Número de dormitorios:</label>
-<div>
-    <input type="radio" name="dormitorios" id="dormitorios" >1
-    <input type="radio" name="dormitorios" id="dormitorios" >2
-    <input type="radio" name="dormitorios" id="dormitorios" >3
-    <input type="radio" name="dormitorios" id="dormitorios" >4
-    <input type="radio" name="dormitorios" id="dormitorios" >5
-</div>
+ <label>Número de dormitorios:</label>
+    <input type="radio" name="dormitorios" value="1" >1
+    <input type="radio" name="dormitorios" value="2"  >2
+    <input type="radio" name="dormitorios" value="3"  >3
+    <input type="radio" name="dormitorios" value="4"  >4
+    <input type="radio" name="dormitorios" value="5"  >5
 
 
 

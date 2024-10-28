@@ -9,6 +9,7 @@
 <body>
 
 <?php
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Capturamos los datos del formulario
     $tipo = htmlspecialchars($_POST['tipo']);
@@ -37,6 +38,68 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $fotoDestino = '';
     }
+
+    $beneficio_empree = 0;
+    //Switch para caclcular el beneficio de la empresa en base al n de la vivienda y el precio
+    switch($zona){
+        case "Centro":
+            if($tamano < 100){
+                $beneficio_empree  = ($precio * 30) /100; 
+            }
+            else if($tamano > 100){
+                $beneficio_empree  = ($precio * 35) /100; 
+            }
+            break;
+        case "Zaidín":
+            if($tamano < 100){
+                $beneficio_empree  = ($precio * 25) /100; 
+            }
+            else if($tamano > 100){
+                $beneficio_empree  = ($precio * 28) /100; 
+            }
+            break;
+        case "Chana":
+            if($tamano  < 100){
+                $beneficio_empree  = ($precio * 22) /100; 
+            }
+            else if($tamano  > 100){
+                $beneficio_empree  = ($precio * 25) /100; 
+            }
+            break;
+        case "Albaicín":
+            if($tamano  < 100){
+                $beneficio_empree = ($precio * 20) /100; 
+            }
+            else if($tamano  > 100){
+                $beneficio_empree  = ($precio * 35) /100; 
+            }
+            break;
+        case "Sacromonte":
+            if($tamano  < 100){
+                $beneficio_empree = ($precio * 22) /100; 
+            }
+            else if($tamano  > 100){
+                $beneficio_empree  = ($precio * 25) /100; 
+            }
+            break;
+        case "Realejo":
+            if($tamano  < 100){
+                $beneficio_empree  = ($precio * 25) /100; 
+            }
+            else if($tamano  > 100){
+                $beneficio_empree  = ($precio * 28) /100; 
+            }
+            break;        
+    }
+
+    $max_size = 100;
+        // Verificar tamaño de la imagen
+        if ($foto['size'] > $max_size) {
+            echo "<p>La imagen es demasiado grande. El tamaño máximo permitido es de 100 KB.</p>";
+            echo "<p><a href='crear_vivienda.php'>Volver al formulario</a></p>";
+            exit;
+        }
+
     
     // Muestra de la información capturada
     echo "<div class='details'>";
@@ -47,6 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "<p><strong>Número de dormitorios:</strong> $dormitorios</p>";
     echo "<p><strong>Precio:</strong> $precio €</p>";
     echo "<p><strong>Tamaño:</strong> $tamano m²</p>";
+    echo "<p><strong>beneficio</strong> $beneficio_empree  €</p>";
 
     if (!empty($extras)) {
         echo "<p><strong>Extras:</strong> " . implode(", ", $extras) . "</p>";
@@ -66,7 +130,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else {
     echo "<p>No se han recibido datos del formulario.</p>";
 }
+
+
 ?>
+
 
 </body>
 </html>
